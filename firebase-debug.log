@@ -1,0 +1,13 @@
+[debug] [2020-03-02T18:11:11.003Z] ----------------------------------------------------------------------
+[debug] [2020-03-02T18:11:11.005Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2020-03-02T18:11:11.005Z] CLI Version:   7.14.0
+[debug] [2020-03-02T18:11:11.005Z] Platform:      darwin
+[debug] [2020-03-02T18:11:11.005Z] Node Version:  v12.16.1
+[debug] [2020-03-02T18:11:11.006Z] Time:          Mon Mar 02 2020 13:11:11 GMT-0500 (GMT-05:00)
+[debug] [2020-03-02T18:11:11.006Z] ----------------------------------------------------------------------
+[debug] [2020-03-02T18:11:11.010Z] 
+[debug] [2020-03-02T18:11:11.106Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-02T18:11:11.110Z] > authorizing via signed-in user
+[debug] [2020-03-02T18:11:11.111Z] [iam] checking project app-pearing for permissions ["firebase.projects.get"]
+[debug] [2020-03-02T18:11:11.113Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/app-pearing:testIamPermissions  
+
