@@ -1,123 +1,53 @@
 <div class="row">
   <div class="col-md-12">
-    <div class="card">
-      <div class="card-header">
-        <h4 class="card-title"> Simple Table</h4>
+    <form>
+      <div class="input-group no-border">
+        <input type="text" class="form-control" placeholder="Ingrese su documento de identidad" #numberId
+          (keyup)="validateInfoAlert( $event, numberId.value )">
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <i class="nc-icon nc-zoom-split" (click)="verifyData( numberId.value )" style="cursor: pointer"></i>
+          </div>
+        </div>
       </div>
+    </form>
+
+    <hr>
+
+    <div class="card" *ngIf="showInfo">
+
+      <div class="card-header">
+        <h4 class="card-title">Se han encontrado las siguientes Multas: </h4>
+      </div>
+
       <div class="card-body">
+
         <div class="table-responsive">
           <table class="table">
-            <thead class=" text-primary">
-              <th>
-                Name
-              </th>
-              <th>
-                Country
-              </th>
-              <th>
-                City
-              </th>
-              <th class="text-right">
-                Salary
+            <thead [ngClass]="{ 'text-danger': showInfo }">
+              <th *ngFor="let item of headers">
+                {{ item.id }}
               </th>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let item of body">
                 <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  Niger
+                  {{ item.id }}
                 </td>
                 <td>
-                  Oud-Turnhout
-                </td>
-                <td class="text-right">
-                  $36,738
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Minerva Hooper
+                  {{ item.name }}
                 </td>
                 <td>
-                  Curaçao
+                  {{ item.lastaName }}
                 </td>
                 <td>
-                  Sinaai-Waas
-                </td>
-                <td class="text-right">
-                  $23,789
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Sage Rodriguez
+                  {{ item.apearing }}
                 </td>
                 <td>
-                  Netherlands
+                  {{ item.money }}
                 </td>
                 <td>
-                  Baileux
-                </td>
-                <td class="text-right">
-                  $56,142
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Philip Chaney
-                </td>
-                <td>
-                  Korea, South
-                </td>
-                <td>
-                  Overland Park
-                </td>
-                <td class="text-right">
-                  $38,735
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Doris Greene
-                </td>
-                <td>
-                  Malawi
-                </td>
-                <td>
-                  Feldkirchen in Kärnten
-                </td>
-                <td class="text-right">
-                  $63,542
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Mason Porter
-                </td>
-                <td>
-                  Chile
-                </td>
-                <td>
-                  Gloucester
-                </td>
-                <td class="text-right">
-                  $78,615
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Jon Porter
-                </td>
-                <td>
-                  Portugal
-                </td>
-                <td>
-                  Gloucester
-                </td>
-                <td class="text-right">
-                  $98,615
+                  <button type="button" class="btn btn-primary" (click)="showOptions()">Pagar ahora</button>
                 </td>
               </tr>
             </tbody>
@@ -125,133 +55,34 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-md-12">
-    <div class="card card-plain">
-      <div class="card-header">
-        <h4 class="card-title"> Table on Plain Background</h4>
-        <p class="card-category"> Here is a subtitle for this table</p>
-      </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table">
-            <thead class=" text-primary">
-              <th>
-                Name
-              </th>
-              <th>
-                Country
-              </th>
-              <th>
-                City
-              </th>
-              <th class="text-right">
-                Salary
-              </th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  Dakota Rice
-                </td>
-                <td>
-                  Niger
-                </td>
-                <td>
-                  Oud-Turnhout
-                </td>
-                <td class="text-right">
-                  $36,738
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Minerva Hooper
-                </td>
-                <td>
-                  Curaçao
-                </td>
-                <td>
-                  Sinaai-Waas
-                </td>
-                <td class="text-right">
-                  $23,789
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Sage Rodriguez
-                </td>
-                <td>
-                  Netherlands
-                </td>
-                <td>
-                  Baileux
-                </td>
-                <td class="text-right">
-                  $56,142
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Philip Chaney
-                </td>
-                <td>
-                  Korea, South
-                </td>
-                <td>
-                  Overland Park
-                </td>
-                <td class="text-right">
-                  $38,735
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Doris Greene
-                </td>
-                <td>
-                  Malawi
-                </td>
-                <td>
-                  Feldkirchen in Kärnten
-                </td>
-                <td class="text-right">
-                  $63,542
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Mason Porter
-                </td>
-                <td>
-                  Chile
-                </td>
-                <td>
-                  Gloucester
-                </td>
-                <td class="text-right">
-                  $78,615
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Jon Porter
-                </td>
-                <td>
-                  Portugal
-                </td>
-                <td>
-                  Gloucester
-                </td>
-                <td class="text-right">
-                  $98,615
-                </td>
-              </tr>
-            </tbody>
-          </table>
+
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+
+          <div class="card card-plain">
+            <div class="card-body">
+
+              <div class="alert alert-danger text-center" *ngIf="showInfo">
+                <span>Por favor, estas son tus multas, pagalas o mira otra alternativa para poder quedar sin
+                  multas!</span>
+              </div>
+
+              <div class="alert alert-success text-center" *ngIf="showInfoSuccess">
+                <span>No tienes multas, con el numero de identidad que ingresaste!</span>
+              </div>
+
+              <div class="alert alert-info text-center" *ngIf="showInfoValidInput">
+                <span>Por favor, ingresa un numero de identidad para poder verificar, si existen multas
+                  asociadas!</span>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>

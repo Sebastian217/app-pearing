@@ -1,13 +1,29 @@
-
 <div class="row">
   <div class="col-md-12">
-    <div class="card ">
-      <div class="card-header ">
-        Google Maps
+
+
+
+    <div class="container">
+
+      <div class="card">
+
+        <div class="card-body" *ngIf="!activateAuthentGoogle">
+          <div class="containern text-center">
+            <button class="btn btn-success" type="button" (click)="validateClick('pse')">PSE</button>
+            <button class="btn btn-info" type="button" (click)="validateClick('curso')">CURSO</button>
+            <button class="btn btn-outline-info" type="button" (click)="validateClick('chat')">CHAT</button>
+          </div>
+        </div>
+
       </div>
-      <div class="card-body ">
-        <div id="map" class="map"></div>
-      </div>
+
+
+
+      <iframe src="https://firechat-2b240.web.app/" class="col-md-12" width="300" height="600"
+        *ngIf="activateAuthentGoogle">
+      </iframe>
+
     </div>
+
   </div>
 </div>
