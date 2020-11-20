@@ -12,12 +12,18 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { RelationsAndGraphsComponent } from './components/relations-and-graphs/relations-and-graphs.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NetworkGraphComponentComponent } from './components/network-graph-component/network-graph-component.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    RelationsAndGraphsComponent,
+    NetworkGraphComponentComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -28,7 +34,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule
+    FixedPluginModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

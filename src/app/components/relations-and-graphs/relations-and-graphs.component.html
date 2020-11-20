@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="card">
+
+      <hr>
+      <div class="card-body">
+
+        <div class="container content-center">
+          <button class="btn btn-success" type="button" (click)="generateCheckMatrix = true"
+            [routerLink]="['/relations-and-grafos']">Generar Matriz</button>
+          <button class="btn btn-info" type="button"
+            (click)="activateTakeNumbers = true; generateCheckMatrix = false">Ingresar Matriz</button>
+        </div>
+
+      </div>
+
+      <div class="card-body" *ngIf="activateTakeNumbers && !generateCheckMatrix">
+        <div class="input-group no-border">
+          <input type="text" class="form-control" placeholder="Columnas" [(ngModel)]="columns">&nbsp;
+          <input type="text" class="form-control" placeholder="Filas" [(ngModel)]="rows">
+        </div>
+        &nbsp;
+        <p *ngIf="validateMatrixCuadrada" style="color: red;">La matriz no es cuadrada</p>
+        <p *ngIf="!validateParOrImpar" style="color: red;">La matriz no es cuadrada</p>
+        <div class="container text-center">
+          <button class="btn btn-warning" type="button" (click)="validateRelations()">pintar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div *ngIf="activateTakeNumbers">
+      <div class="content-center" *ngFor="let itemData of matrixFinal['data'];  let j=index; ">
+        <hr>
+        <label>Columna: {{ j }}</label>
+        <hr>
+        <div *ngFor="let item of itemData; let i=index;">
+          <label>Fila: {{ i }} </label><br>
+          <input type="text" class="form-control col-md-4" (keypress)="matrixComplete($event, j, i)">
+        </div>
+
+      </div>
+      <div class="container text-left" *ngIf="activateRenderData">
+        <button class="btn btn-warning" type="button" (click)="validateValues($event)">validar</button>
+      </div>
+    </div>
+  </div>
+</div>
